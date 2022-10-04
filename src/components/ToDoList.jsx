@@ -1,22 +1,17 @@
 import InputToDo from "./InputToDo"
 import ToDoCounter from "./ToDoCounter"
 import { useState } from "react"
-import './ToDoList.css'
+import ToDoItem from "./ToDoItem"
 
 const ToDoList = () => {
     const [newToDo, setNewToDo] = useState([])
-    const [clicked, setClicked] = useState(false)
-
-    const handleClick = () => {
-        setClicked(!clicked)
-    }
 
     return (
         <>
             <ToDoCounter countercount={newToDo.length} />
             <InputToDo settodo={setNewToDo} />
             {newToDo.map((item, key) =>
-                <p key={key} className={clicked ? 'done' : ''} onClick={handleClick}>{item}</p>
+                <ToDoItem key={key} title={item} />
             )}
         </>
     )
@@ -25,4 +20,4 @@ const ToDoList = () => {
 export default ToDoList
 
 
-// TODO: Abstreichen der ToDos muss noch korrigiert werden
+// TODO: Abstreichen der ToDos muss noch auf Counter angewandt werden
