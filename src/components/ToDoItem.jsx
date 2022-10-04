@@ -4,12 +4,12 @@ import './ToDoItem.css'
 const ToDoItem = (props) => {
     const [clicked, setClicked] = useState(false)
 
-    const handleClick = () => {
+    const done = () => {
         setClicked(!clicked)
     }
 
     return (
-        <p className={clicked ? 'done' : ''} onClick={handleClick}>{props.title}</p>
+        <p className={clicked ? 'done' : ''} onClick={done}>{props.title}</p>
     )
 }
 
